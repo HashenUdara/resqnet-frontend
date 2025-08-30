@@ -66,6 +66,9 @@ body {
   --space-6: 24px;
   --space-8: 32px;
 
+  /* Layout */
+  --layout-max-width: 960px;
+
   /* Transitions */
   --transition-fast: 120ms ease;
   --transition: 150ms ease;
