@@ -65,8 +65,8 @@ body {
   --space-6: 24px;
   --space-8: 32px;
 
-  /* Layout */
-  --layout-max-width: 960px;
+  /* Layout (site-wide readable max width) */
+  --layout-max-width: 880px;
 
   /* Fonts */
   --font-family-base: "Plus Jakarta Sans", system-ui, -apple-system,
@@ -276,6 +276,100 @@ h1 {
   line-height: 1.15;
   font-weight: 600;
   margin: 0 0 var(--space-6);
+}
+
+/* 10. Global site header */
+.site-header {
+  width: 100%;
+  background: var(--color-app-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+.site-header__inner {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 3rem);
+  padding: var(--space-3) var(--space-4);
+}
+@media (min-width: 640px) {
+  .site-header__inner {
+    padding: var(--space-3) var(--space-6);
+  }
+}
+.brand-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  color: inherit;
+}
+.brand-inline img {
+  height: 34px;
+  width: auto;
+  display: block;
+}
+
+.primary-nav {
+  margin-left: auto; /* push nav (and its items) toward action buttons side */
+}
+.primary-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: clamp(1.1rem, 2.5vw, 2.25rem);
+  align-items: center;
+}
+.primary-nav a {
+  position: relative;
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  padding: 0.75rem 0.25rem;
+  text-decoration: none;
+  color: var(--color-text);
+}
+.primary-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.4rem;
+  height: 2px;
+  background: var(--color-accent);
+  opacity: 0;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  transform: scaleX(0.5);
+}
+.primary-nav a:hover::after,
+.primary-nav a:focus-visible::after,
+.primary-nav a[aria-current="page"]::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.header-actions {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+}
+.header-actions .btn {
+  padding: 10px 20px;
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .primary-nav ul {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .primary-nav ul::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Dark theme removed (app is light-only). If dark mode needed later, reintroduce here. */
