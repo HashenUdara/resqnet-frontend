@@ -11,38 +11,52 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/lucide@latest"></script>
   </head>
   <body>
     <div class="layout">
       <aside class="sidebar" aria-label="Primary">
         <div class="brand">
-          <img class="logo-img" src="./assets/img/logo.svg" alt="ResQnet Logo" width="120" height="32" />
+          <img
+            class="logo-img"
+            src="./assets/img/logo.svg"
+            alt="ResQnet Logo"
+            width="120"
+            height="32"
+          />
           <span class="brand-name sr-only">ResQnet</span>
         </div>
         <nav class="nav">
           <button class="nav-item active" data-section="overview">
-            <span class="icon">🏠</span> <span>Overview</span>
+            <span class="icon" data-lucide="home"></span><span>Overview</span>
           </button>
           <button class="nav-item" data-section="forecast">
-            <span class="icon">📈</span> <span>Forecast Dashboard</span>
+            <span class="icon" data-lucide="line-chart"></span
+            ><span>Forecast Dashboard</span>
           </button>
           <button class="nav-item" data-section="safe-locations">
-            <span class="icon">📍</span> <span>Safe Locations</span>
+            <span class="icon" data-lucide="map-pin"></span
+            ><span>Safe Locations</span>
           </button>
           <button class="nav-item" data-section="make-donation">
-            <span class="icon">🎁</span> <span>Make a Donation</span>
+            <span class="icon" data-lucide="gift"></span
+            ><span>Make a Donation</span>
           </button>
           <button class="nav-item" data-section="request-donation">
-            <span class="icon">📦</span> <span>Request a Donation</span>
+            <span class="icon" data-lucide="package"></span
+            ><span>Request a Donation</span>
           </button>
           <button class="nav-item" data-section="report-disaster">
-            <span class="icon">⚠️</span> <span>Report a Disaster</span>
+            <span class="icon" data-lucide="alert-triangle"></span
+            ><span>Report a Disaster</span>
           </button>
           <button class="nav-item" data-section="forum">
-            <span class="icon">💬</span> <span>Forum</span>
+            <span class="icon" data-lucide="message-circle"></span
+            ><span>Forum</span>
           </button>
           <button class="nav-item" data-section="profile-settings">
-            <span class="icon">👤</span> <span>Profile Settings</span>
+            <span class="icon" data-lucide="user"></span
+            ><span>Profile Settings</span>
           </button>
         </nav>
         <div class="sidebar-footer">
@@ -61,7 +75,8 @@
             tabindex="0"
             aria-label="Hotline 117"
           >
-            ☎ Hotline: <strong>117</strong>
+            <span class="hotline-icon" data-lucide="phone"></span>Hotline:
+            <strong>117</strong>
           </div>
           <div class="user-avatar" aria-label="User Menu" role="button">
             <img
@@ -69,7 +84,9 @@
               alt="User Avatar"
             />
           </div>
-          <button class="menu-toggle" aria-label="Open Menu">☰</button>
+          <button class="menu-toggle" aria-label="Open Menu">
+            <span data-lucide="menu"></span>
+          </button>
         </div>
       </header>
 
@@ -77,7 +94,7 @@
         <section class="welcome">
           <h1>Welcome Volunteer!</h1>
           <div class="alert info">
-            <span class="alert-icon">⚠️</span>
+            <span class="alert-icon" data-lucide="alert-triangle"></span>
             <p>Heavy Rainfall Warning in Gampaha District – Next 48 Hours</p>
           </div>
         </section>
@@ -85,19 +102,21 @@
         <section class="quick-actions" aria-label="Quick Actions">
           <div class="action-grid">
             <button class="action-card" data-section="make-donation">
-              <div class="action-icon">🎁</div>
+              <div class="action-icon"><i data-lucide="gift"></i></div>
               <span>Make a Donation</span>
             </button>
             <button class="action-card" data-section="request-donation">
-              <div class="action-icon">📦</div>
+              <div class="action-icon"><i data-lucide="package"></i></div>
               <span>Request a Donation</span>
             </button>
             <button class="action-card" data-section="report-disaster">
-              <div class="action-icon">⚠️</div>
+              <div class="action-icon">
+                <i data-lucide="alert-triangle"></i>
+              </div>
               <span>Report a Disaster</span>
             </button>
             <button class="action-card" data-section="safe-locations">
-              <div class="action-icon">📍</div>
+              <div class="action-icon"><i data-lucide="map-pin"></i></div>
               <span>Safe Locations</span>
             </button>
           </div>
@@ -114,7 +133,7 @@
 
     <template id="report-item-template">
       <li class="report-item">
-        <div class="report-icon">📰</div>
+        <div class="report-icon"><i data-lucide="newspaper"></i></div>
         <div class="report-details">
           <h3 class="report-title"></h3>
           <p class="report-desc"></p>

@@ -21,6 +21,7 @@ body {
   --sidebar-width: 250px;
   --color-bg: #ffffff;
   --color-surface: #f7f7f7;
+  --color-hover-surface: #f4f4f4;
   --color-border: #ececec;
   --color-accent: #ffcc00;
   --color-accent-2: #d7302f;
@@ -58,7 +59,11 @@ body {
   gap: 0.5rem;
   padding: 0 0.75rem;
 }
-.logo-img { display:block; height:32px; width:auto; }
+.logo-img {
+  display: block;
+  height: 32px;
+  width: auto;
+}
 .brand-name {
   font-size: 1.05rem;
 }
@@ -92,6 +97,10 @@ body {
   width: 1.25rem;
   text-align: center;
   font-size: 1rem;
+}
+.nav-item .icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
 }
 .sidebar-footer {
   padding: 0.5rem 0.75rem;
@@ -208,7 +217,7 @@ body {
 .action-card {
   all: unset;
   cursor: pointer;
-  background: var(--color-surface);
+  background: #fff;
   border: 1px solid var(--color-border);
   min-height: 120px;
   border-radius: var(--radius-lg);
@@ -222,15 +231,34 @@ body {
   font-weight: 600;
   font-size: 0.9rem;
   position: relative;
-  transition: var(--transition);
+  transition: background-color 180ms ease;
 }
 .action-card:hover {
-  background: #fff;
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  background: var(--color-hover-surface);
 }
 .action-icon {
   font-size: 1.6rem;
+}
+.action-icon svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  stroke-width: 1.75;
+}
+.alert-icon svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.hotline-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+.menu-toggle svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+.report-icon svg {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 .reports h2 {
@@ -256,8 +284,12 @@ body {
   align-items: center;
   transition: var(--transition);
 }
+.report-item {
+  /* existing rules above kept */
+  transition: background-color 180ms ease;
+}
 .report-item:hover {
-  box-shadow: var(--shadow-md);
+  background: var(--color-hover-surface);
 }
 .report-icon {
   width: 48px;

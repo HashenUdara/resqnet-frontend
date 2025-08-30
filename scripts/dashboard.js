@@ -79,6 +79,9 @@ function init() {
   setupNavigation();
   setupActionsAsNav();
   setupSidebarToggle();
+  if (window.lucide) {
+    window.lucide.createIcons();
+  }
 }
 
 document.addEventListener("DOMContentLoaded", init);
