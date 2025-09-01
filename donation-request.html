@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResQnet Donation Request</title>
+    <link rel="stylesheet" href="./styles/core.css" />
+    <link rel="stylesheet" href="./styles/dashboard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+  </head>
+  <body>
+    <div class="layout">
+      <!-- Sidebar (copied for consistency) -->
+      <aside class="sidebar" aria-label="Primary">
+        <div class="brand">
+          <img class="logo-img" src="./assets/img/logo.svg" alt="ResQnet Logo" width="120" height="32" />
+          <span class="brand-name sr-only">ResQnet</span>
+        </div>
+        <nav class="nav">
+          <button class="nav-item" data-section="overview"><span class="icon" data-lucide="home"></span><span>Overview</span></button>
+          <button class="nav-item" data-section="forecast"><span class="icon" data-lucide="line-chart"></span><span>Forecast Dashboard</span></button>
+          <button class="nav-item" data-section="safe-locations"><span class="icon" data-lucide="map-pin"></span><span>Safe Locations</span></button>
+          <button class="nav-item" data-section="make-donation"><span class="icon" data-lucide="gift"></span><span>Make a Donation</span></button>
+          <button class="nav-item active" data-section="request-donation"><span class="icon" data-lucide="package"></span><span>Request a Donation</span></button>
+          <button class="nav-item" data-section="report-disaster"><span class="icon" data-lucide="alert-triangle"></span><span>Report a Disaster</span></button>
+          <button class="nav-item" data-section="forum"><span class="icon" data-lucide="message-circle"></span><span>Forum</span></button>
+          <button class="nav-item" data-section="profile-settings"><span class="icon" data-lucide="user"></span><span>Profile Settings</span></button>
+        </nav>
+        <div class="sidebar-footer">
+          <button class="logout" aria-label="Logout">↩ Logout</button>
+        </div>
+      </aside>
+
+      <!-- Topbar (copied) -->
+      <header class="topbar">
+        <div class="breadcrumb">General Public Dashboard / <span>Donation Request</span></div>
+        <div class="topbar-right">
+          <div class="hotline" role="button" tabindex="0" aria-label="Hotline 117">
+            <span class="hotline-icon" data-lucide="phone"></span>Hotline: <strong>117</strong>
+          </div>
+          <div class="user-avatar" aria-label="User Menu" role="button">
+            <img src="https://via.placeholder.com/40x40.png?text=U" alt="User Avatar" />
+          </div>
+          <button class="menu-toggle" aria-label="Open Menu"><span data-lucide="menu"></span></button>
+        </div>
+      </header>
+
+      <main class="content" id="mainContent" tabindex="-1">
+        <section aria-labelledby="donationRequestHeading">
+          <h1 id="donationRequestHeading">Donation Request Form</h1>
+          <form class="card donation-request-form" id="donationRequestForm">
+            <div class="form-group" style="max-width:480px;">
+              <label for="reliefCenterName">Relief Center Name</label>
+              <input type="text" id="reliefCenterName" name="reliefCenterName" placeholder="Enter center name" required />
+            </div>
+
+            <h2 style="margin-top:2rem;font-size:1.1rem;">Items Needed</h2>
+            <div class="item-groups">
+              <!-- Medicine -->
+              <div class="item-group">
+                <h3>Medicine</h3>
+                <ul class="item-list">
+                  <li><label><input type="checkbox" name="items[amoxicillin][selected]" /> Amoxicillin</label><select name="items[amoxicillin][qty]"> <option>1</option><option>5</option><option>10</option><option>20</option> </select></li>
+                  <li><label><input type="checkbox" name="items[antiseptic_solution][selected]" /> Antiseptic solution</label><select name="items[antiseptic_solution][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[bandages][selected]" /> Bandages</label><select name="items[bandages][qty]"> <option>1</option><option>10</option><option>25</option> </select></li>
+                  <li><label><input type="checkbox" name="items[paracetamol][selected]" /> Paracetamol</label><select name="items[paracetamol][qty]"> <option>1</option><option>10</option><option>20</option> </select></li>
+                  <li><label><input type="checkbox" name="items[aspirin][selected]" /> Aspirin</label><select name="items[aspirin][qty]"> <option>1</option><option>10</option><option>20</option> </select></li>
+                  <li><label><input type="checkbox" name="items[antifungal_powder][selected]" /> Antifungal powder</label><select name="items[antifungal_powder][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[mosquito_repellent][selected]" /> Mosquito repellent</label><select name="items[mosquito_repellent][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[diabetes_tablets][selected]" /> Diabetes tablets</label><select name="items[diabetes_tablets][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[sanitary_pads][selected]" /> Sanitary pads</label><select name="items[sanitary_pads][qty]"> <option>1</option><option>5</option><option>10</option><option>20</option> </select></li>
+                  <li><label><input type="checkbox" name="items[cotton_wool][selected]" /> Cotton wool</label><select name="items[cotton_wool][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[alcohol_swabs][selected]" /> Alcohol swabs</label><select name="items[alcohol_swabs][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                </ul>
+              </div>
+
+              <!-- Food -->
+              <div class="item-group">
+                <h3>Food</h3>
+                <ul class="item-list">
+                  <li><label><input type="checkbox" name="items[rice][selected]" /> Rice</label><select name="items[rice][qty]"> <option>1</option><option>25kg</option><option>50kg</option> </select></li>
+                  <li><label><input type="checkbox" name="items[dhal][selected]" /> Dhal</label><select name="items[dhal][qty]"> <option>1</option><option>5kg</option><option>10kg</option> </select></li>
+                  <li><label><input type="checkbox" name="items[canned_fish][selected]" /> Canned fish</label><select name="items[canned_fish][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[infant_formula][selected]" /> Infant formula</label><select name="items[infant_formula][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[baby_food][selected]" /> Baby food jars or sachets</label><select name="items[baby_food][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[drinking_water][selected]" /> Drinking water</label><select name="items[drinking_water][qty]"> <option>1</option><option>10L</option><option>50L</option> </select></li>
+                  <li><label><input type="checkbox" name="items[instant_noodles][selected]" /> Instant noodles</label><select name="items[instant_noodles][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[biscuits][selected]" /> Biscuits</label><select name="items[biscuits][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[canned_meat][selected]" /> Canned meat</label><select name="items[canned_meat][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[milk_powder][selected]" /> Milk powder</label><select name="items[milk_powder][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[cooking_oil][selected]" /> Cooking oil</label><select name="items[cooking_oil][qty]"> <option>1</option><option>5L</option><option>10L</option> </select></li>
+                </ul>
+              </div>
+
+              <!-- Shelter -->
+              <div class="item-group">
+                <h3>Shelter</h3>
+                <ul class="item-list">
+                  <li><label><input type="checkbox" name="items[sleeping_mats][selected]" /> Sleeping mats</label><select name="items[sleeping_mats][qty]"> <option>1</option><option>10</option><option>20</option> </select></li>
+                  <li><label><input type="checkbox" name="items[blankets][selected]" /> Blankets</label><select name="items[blankets][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[towels][selected]" /> Towels</label><select name="items[towels][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[toothbrush][selected]" /> Toothbrush</label><select name="items[toothbrush][qty]"> <option>1</option><option>10</option><option>20</option> </select></li>
+                  <li><label><input type="checkbox" name="items[soap][selected]" /> Soap</label><select name="items[soap][qty]"> <option>1</option><option>10</option><option>20</option> </select></li>
+                  <li><label><input type="checkbox" name="items[basic_clothing][selected]" /> Basic clothing</label><select name="items[basic_clothing][qty]"> <option>1</option><option>10</option><option>20</option> </select></li>
+                  <li><label><input type="checkbox" name="items[candles][selected]" /> Candles</label><select name="items[candles][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[plates_cups][selected]" /> Plates, cups</label><select name="items[plates_cups][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[baby_diapers][selected]" /> Baby diapers</label><select name="items[baby_diapers][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[baby_clothes][selected]" /> Baby clothes</label><select name="items[baby_clothes][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                  <li><label><input type="checkbox" name="items[disinfectant][selected]" /> Disinfectant</label><select name="items[disinfectant][qty]"> <option>1</option><option>5</option><option>10</option> </select></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-group" style="margin-top:2rem;">
+              <label for="specialNotes">Special Notes</label>
+              <textarea id="specialNotes" name="specialNotes" rows="5" placeholder="Add any special requirements or context..."></textarea>
+            </div>
+
+            <div class="form-actions" style="margin-top:1.5rem;display:flex;gap:1rem;">
+              <button type="reset" class="btn secondary">Cancel</button>
+              <button type="submit" class="btn primary">Submit Request</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        if (window.lucide) lucide.createIcons();
+        const form = document.getElementById('donationRequestForm');
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const formData = new FormData(form);
+          const payload = { reliefCenterName: formData.get('reliefCenterName'), specialNotes: formData.get('specialNotes'), items: [] };
+          // Collect selected items
+          const entries = Array.from(formData.entries());
+          const itemMap = {};
+          entries.forEach(([key, value]) => {
+            const match = key.match(/^items\[(.+?)\]\[(selected|qty)\]$/);
+            if (match) {
+              const id = match[1];
+              const type = match[2];
+              itemMap[id] = itemMap[id] || { id };
+              if (type === 'selected') itemMap[id].selected = true;
+              if (type === 'qty') itemMap[id].qty = value;
+            }
+          });
+          payload.items = Object.values(itemMap).filter(i => i.selected);
+          console.log('Donation Request Submitted', payload);
+          alert('Donation request submitted! (See console for payload)');
+          form.reset();
+        });
+      });
+    </script>
+  </body>
+</html>
