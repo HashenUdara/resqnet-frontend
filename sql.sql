@@ -1,7 +1,7 @@
 users(
   user_id INT PK,
   username VARCHAR(100),
-  password VARCHAR(255),
+`password_hash` varchar(255) NOT NULL,
   email VARCHAR(150),
   role ENUM('general','volunteer','ngo','grama_niladhari','dmc')
 );
@@ -70,4 +70,14 @@ grama_niladhari(
     gn_division VARCHAR(100),
     service_number VARCHAR(50),
     gn_division_number VARCHAR(50),
-)
+);
+
+-- Password Reset Token Management
+password_reset_tokens(
+    token VARCHAR(64) PK,
+    user_id INT FK → users(user_id) ON DELETE CASCADE,
+    expires_at TIMESTAMP NOT NULL,
+    used TINYINT(1) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_prt_user_expires (user_id, expires_at)
+);
