@@ -64,7 +64,7 @@
             <button class="action-card" data-goto="make-donation.html"><div class="action-icon"><i data-lucide="gift"></i></div><span>Make a Donation</span></button>
             <button class="action-card" data-goto="request-donation.html"><div class="action-icon"><i data-lucide="package-plus"></i></div><span>Request a Donation</span></button>
             <button class="action-card" data-goto="report-disaster.html"><div class="action-icon"><i data-lucide="alert-octagon"></i></div><span>Report a Disaster</span></button>
-            <button class="action-card" data-goto="safe-locations-gn.html"><div class="action-icon"><i data-lucide="map-pin"></i></div><span>Safe Locations</span></button>
+            <button class="action-card" data-goto="safe-locations-volunteer.html"><div class="action-icon"><i data-lucide="map-pin"></i></div><span>Safe Locations</span></button>
           </div>
         </section>
         <section aria-labelledby="verifiedHeading">
@@ -91,6 +91,22 @@
         if(window.lucide) lucide.createIcons();
         const actions=document.querySelectorAll('[data-goto]');
         actions.forEach(btn=>btn.addEventListener('click',()=>{ window.location.href=btn.getAttribute('data-goto'); }));
+        // Sidebar routing
+        document.querySelectorAll('.nav-item').forEach(btn=>{
+          btn.addEventListener('click',()=>{
+            const s=btn.getAttribute('data-section');
+            switch(s){
+              case 'overview': location.href='volunteer-overview.html'; break;
+              case 'forecast': location.href='forecast-dashboard.html'; break;
+              case 'safe-locations': location.href='safe-locations-volunteer.html'; break;
+              case 'make-donation': location.href='make-donation.html'; break;
+              case 'request-donation': location.href='request-donation.html'; break;
+              case 'report-disaster': location.href='report-disaster.html'; break;
+              case 'forum': location.href='community-forum.html'; break;
+              case 'profile-settings': location.href='volunteer-profile-settings.html'; break;
+            }
+          });
+        });
         const reports=[
           { title:'Flooding in Residential Area', desc:'Urgent need for rescue in the flooded area near Main Street.', by:'Reported by: Sarah Miller' },
           { title:'Landslide Near Community Center', desc:'Landslide blocking access to the community center. Volunteers needed for debris removal.', by:'Reported by: David Chen' },

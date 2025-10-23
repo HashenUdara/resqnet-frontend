@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>ResQnet - Volunteer Safe Locations</title>
+    <link rel="stylesheet" href="./styles/core.css" />
+    <link rel="stylesheet" href="./styles/dashboard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <style>
+      .section { background:#fff; border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:1.25rem; }
+      .section h2 { margin:0 0 1rem; font-size:1.05rem; }
+      .safe-grid { display:grid; grid-template-columns: 1fr 1.2fr; gap:1.25rem; }
+      .list { display:flex; flex-direction:column; gap:0.6rem; }
+      .loc { background:var(--color-surface); border:1px solid var(--color-border); padding:0.85rem 1rem; border-radius:var(--radius-md); cursor:pointer; }
+      .loc:hover { background:var(--color-hover-surface); }
+      .name { font-weight:700; font-size:.9rem; margin-bottom:0.25rem; }
+      .coords { color:#666; font-size:.75rem; }
+      .map { background:var(--color-surface); border:1px solid var(--color-border); border-radius:var(--radius-md); min-height:360px; overflow:hidden; }
+      .map iframe { width:100%; height:100%; border:0; display:block; }
+      @media (max-width: 900px){ .safe-grid{ grid-template-columns:1fr; } }
+    </style>
+  </head>
+  <body>
+    <div class="layout">
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-label="Primary">
+        <div class="brand"><img class="logo-img" src="./assets/img/logo.svg" alt="ResQnet Logo" width="120" height="32" /><span class="brand-name sr-only">ResQnet</span></div>
+        <nav class="nav">
+          <button class="nav-item" data-section="overview"><span class="icon" data-lucide="home"></span><span>Overview</span></button>
+          <button class="nav-item" data-section="forecast"><span class="icon" data-lucide="line-chart"></span><span>Forecast Dashboard</span></button>
+          <button class="nav-item active" data-section="safe-locations"><span class="icon" data-lucide="map-pin"></span><span>Safe Locations</span></button>
+          <button class="nav-item" data-section="make-donation"><span class="icon" data-lucide="hand-coins"></span><span>Make a Donation</span></button>
+          <button class="nav-item" data-section="request-donation"><span class="icon" data-lucide="package-plus"></span><span>Request a Donation</span></button>
+          <button class="nav-item" data-section="report-disaster"><span class="icon" data-lucide="alert-octagon"></span><span>Report a Disaster</span></button>
+          <button class="nav-item" data-section="forum"><span class="icon" data-lucide="message-circle"></span><span>Forum</span></button>
+          <button class="nav-item" data-section="profile-settings"><span class="icon" data-lucide="user"></span><span>Profile Settings</span></button>
+        </nav>
+        <div class="sidebar-footer"><button class="logout" aria-label="Logout">↩ Logout</button></div>
+      </aside>
+
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="breadcrumb">Volunteer Dashboard / <span>Safe Locations</span></div>
+        <div class="topbar-right">
+          <div class="hotline" role="button" tabindex="0" aria-label="Hotline 117"><span class="hotline-icon" data-lucide="phone"></span>Hotline: <strong>117</strong></div>
+          <div class="user-avatar" aria-label="User Menu" role="button"><img src="https://via.placeholder.com/40x40.png?text=U" alt="User Avatar" /></div>
+          <button class="menu-toggle" aria-label="Open Menu"><span data-lucide="menu"></span></button>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <main class="content" id="mainContent" tabindex="-1">
+        <section class="section" aria-label="Safe Locations">
+          <h2>Safe Locations</h2>
+          <div class="safe-grid">
+            <div class="list" id="locList">
+              <button class="loc" data-lat="40.7128" data-lng="-74.0060" data-title="Central Park">
+                <div class="name">Central Park</div>
+                <div class="coords">40.7128° N, 74.0060° W</div>
+              </button>
+              <button class="loc" data-lat="34.0522" data-lng="-118.2437" data-title="Griffith Observatory">
+                <div class="name">Griffith Observatory</div>
+                <div class="coords">34.0522° N, 118.2437° W</div>
+              </button>
+              <button class="loc" data-lat="48.8566" data-lng="2.3522" data-title="Eiffel Tower">
+                <div class="name">Eiffel Tower</div>
+                <div class="coords">48.8566° N, 2.3522° E</div>
+              </button>
+              <button class="loc" data-lat="37.7749" data-lng="-122.4194" data-title="Golden Gate Park">
+                <div class="name">Golden Gate Park</div>
+                <div class="coords">37.7749° N, 122.4194° W</div>
+              </button>
+            </div>
+            <div class="map"><iframe id="mapFrame" src="https://www.openstreetmap.org/export/embed.html?bbox=-74.0170%2C40.7000%2C-73.9950%2C40.7250&layer=mapnik&marker=40.7128%2C-74.0060" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      if (window.lucide) lucide.createIcons();
+
+      // Sidebar routing for volunteer paths
+      document.querySelectorAll('.nav-item').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const s = btn.getAttribute('data-section');
+          switch (s) {
+            case 'overview': location.href = 'volunteer-overview.html'; break;
+            case 'forecast': location.href = 'forecast-dashboard.html'; break;
+            case 'safe-locations': location.href = 'safe-locations-volunteer.html'; break;
+            case 'make-donation': location.href = 'make-donation.html'; break;
+            case 'request-donation': location.href = 'request-donation.html'; break;
+            case 'report-disaster': location.href = 'report-disaster.html'; break;
+            case 'forum': location.href = 'community-forum.html'; break;
+            case 'profile-settings': location.href = 'volunteer-profile-settings.html'; break;
+          }
+        });
+      });
+
+      // Logout
+      document.querySelector('.logout').addEventListener('click', () => {
+        if (confirm('Are you sure you want to logout?')) location.href = 'login.html';
+      });
+
+      // Click list items to update map marker center
+      const frame = document.getElementById('mapFrame');
+      document.getElementById('locList').addEventListener('click', (e) => {
+        const btn = e.target.closest('.loc'); if(!btn) return;
+        const lat = btn.getAttribute('data-lat');
+        const lng = btn.getAttribute('data-lng');
+        const bbox = `${(+lng-0.011).toFixed(4)}%2C${(+lat-0.012).toFixed(4)}%2C${(+lng+0.011).toFixed(4)}%2C${(+lat+0.012).toFixed(4)}`;
+        frame.src = `https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat}%2C${lng}`;
+      });
+    </script>
+  </body>
+</html>
